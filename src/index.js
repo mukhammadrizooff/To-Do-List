@@ -26,7 +26,7 @@ function tasktemplate(listItem) {
     <i class="fas fa-ellipsis-v"></i>
   </div>
   `;
-} 
+}
 const rootList = document.querySelector('.list-container');
 
 listData.forEach((listItem) => {
