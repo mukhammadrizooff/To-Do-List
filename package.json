@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode=development",
-    "start": "webpack serve --open"
+    "start": "webpack serve --open",
+    "ci:lighthouse": "lhci autorun"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/mukhammadrizooff/To-Do-List#readme",
   "devDependencies": {
+    "@lhci/cli": "^0.8.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
