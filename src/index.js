@@ -18,32 +18,19 @@ const listData = [
   },
 ];
 
-let listMark = `
-  <div class="line title">
-    <p>To Do List</p>
-    <i class="fas fa-sync"></i>
-  </div>
+function tasktemplate(listItem) {
+  return `
   <div class="line">
-    <input class="div-input" type="text" placeholder="Add to your list">
-    <i class="fas fa-level-down-alt rotate"></i>
+    <input type="checkbox">
+    <p>${listItem.description}</p>
+    <i class="fas fa-ellipsis-v"></i>
   </div>
-`;
+  `;
+} 
+const rootList = document.querySelector('.list-container');
 
 listData.forEach((listItem) => {
-  listMark += `
-      <div class="line">
-        <input type="checkbox">
-        <p>${listItem.description}</p>
-        <i class="fas fa-ellipsis-v"></i>
-      </div>
-  `;
+  const article = document.createElement('article');
+  article.innerHTML = tasktemplate(listItem);
+  rootList.appendChild(article);
 });
-
-listMark += `
-    <div class="line remove">
-      <p>Clear All Completed</p>
-    </div>
-`;
-
-const rootList = document.querySelector('.container');
-rootList.innerHTML = listMark;
