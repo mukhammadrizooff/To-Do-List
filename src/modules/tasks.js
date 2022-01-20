@@ -1,7 +1,7 @@
 import Task from './root';
 import StorageManager from './storage';
 
-export default class TasksManager {
+export default class ListControl {
   constructor() {
     this.tasks = [];
   }
@@ -15,7 +15,7 @@ export default class TasksManager {
     return newTask;
   };
 
-  deleteTask = (index) => {
+  removeList = (index) => {
     const newTasks = [];
     const taskIndex = index - 1;
 
