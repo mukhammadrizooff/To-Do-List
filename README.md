@@ -4,7 +4,7 @@
 
 Additional description about the project and its features.
 
-![2022-01-19_21-05-17](https://user-images.githubusercontent.com/63915024/150205559-927409bd-a533-44b4-ad77-02bbacbac2bd.png)
+![2022-01-20_19-37-00](https://user-images.githubusercontent.com/63915024/150359553-4e2fcd2a-4533-44c4-8583-51ace5b2fae6.png)
 
 ## Built With
 
