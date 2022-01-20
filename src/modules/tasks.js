@@ -1,9 +1,9 @@
-import Task from './root';
-import StorageManager from './storage';
+import Task from './root.js';
+import StorageLocal from './storage.js';
 
 export default class ListControl {
   constructor() {
-    this.tasks = [];
+    this.tasks = StorageLocal.load();
   }
 
   getTasks = () => this.tasks.sort((a, b) => a.index - b.index);
@@ -11,7 +11,7 @@ export default class ListControl {
   addTask = (description, completed = false) => {
     const newTask = new Task(this.tasks.length + 1, description, completed);
     this.tasks.push(newTask);
-    StorageManager.save(this.tasks);
+    StorageLocal.save(this.tasks);
     return newTask;
   };
 
@@ -28,13 +28,13 @@ export default class ListControl {
       }
     });
     this.tasks = newTasks;
-    StorageManager.save(this.tasks);
+    StorageLocal.save(this.tasks);
   };
 
   updateTask = (index, description, completed) => {
     this.tasks[index - 1].description = description;
     this.tasks[index - 1].completed = completed;
-    StorageManager.save(this.tasks);
+    StorageLocal.save(this.tasks);
 
     return this.tasks[index - 1];
   };

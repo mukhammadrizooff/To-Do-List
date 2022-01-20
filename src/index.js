@@ -1,6 +1,6 @@
 import './index.css';
-import ListControl from './modules/tasks';
-import ControlDisplay from './modules/display';
+import ListControl from './modules/tasks.js';
+import ControlDisplay from './modules/display.js';
 
 const selector = (element) => document.querySelector(element);
 const selectorAll = (element) => document.querySelectorAll(element);
@@ -23,7 +23,7 @@ const removeList = (index) => {
   ControlDisplay.reset(selector('.tasks'));
   manager
     .getTasks()
-    .forEach((task) => ControlDisplay.displayTask(selector('.tasks'), task));
+    .forEach((task) => ControlDisplay.controlDisplay(selector('.tasks'), task));
   selectorAll('.fa-trash').forEach((e) => e.addEventListener('click', () => {
     removeList(e.dataset.id);
   }));
@@ -39,7 +39,7 @@ const removeList = (index) => {
 
 const createTask = () => {
   const task = manager.addTask(input.value);
-  ControlDisplay.displayTask(selector('.tasks'), task);
+  ControlDisplay.controlDisplay(selector('.tasks'), task);
   input.value = '';
 
   selector(`#task_${task.index}`).addEventListener('click', () => {

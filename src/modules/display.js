@@ -3,13 +3,13 @@ export default class ControlDisplay {
     element.innerHTML = '';
   };
 
-  static displayTask = (parent, task) => {
+  static controlDisplay = (parent, task) => {
     const taskDiv = ControlDisplay.createHtml(parent, 'div', 'task');
     const taskInput = ControlDisplay.createHtml(taskDiv, 'div', 'task_input');
 
     const input = ControlDisplay.createHtml(taskInput, 'input');
     input.setAttribute('type', 'checkbox');
-    input.setAttribute('class', `task_${task.index}_checkbox`);
+    input.setAttribute('class', `task_${task.index}_checkbox checkbox_task`);
 
     const inputSecond = ControlDisplay.createHtml(taskInput, 'input');
     inputSecond.setAttribute('type', 'text');
