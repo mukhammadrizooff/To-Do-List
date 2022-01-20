@@ -16,10 +16,9 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: black; */
 }
 
-.container  > div {
+.container > div {
   min-width: 400px;
   max-width: 550px;
   justify-content: space-between;
@@ -35,8 +34,7 @@ section {
 }
 
 .line {
-  background-color: #dcdbdb;
-  padding: 0;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   background-color: white;
@@ -50,17 +48,10 @@ section {
 }
 
 .tasks {
-  background-color: white;
-}
-
-.line {
-  padding: 20px;
-}
-
-.tasks {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  background-color: white;
 }
 
 .task {
@@ -77,11 +68,6 @@ section {
   background-color: rgb(240, 240, 232);
 }
 
-.task:focus-within input {
-  background-color: #888;
-  transition: background-color 0s ease;
-}
-
 input,
 input:focus,
 textarea:focus,
@@ -95,6 +81,11 @@ select:focus {
   transition: background-color 0.5s ease;
 }
 
+.task:focus-within input {
+  background-color: #888;
+  transition: background-color 0s ease;
+}
+
 input::placeholder {
   font-style: italic;
 }
@@ -103,7 +94,7 @@ input::placeholder {
   transform: rotate(90deg);
 }
 
-.container  .footer {
+.container .footer {
   text-align: center;
   color: grey;
   background-color: rgb(243, 243, 243);
