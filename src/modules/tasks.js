@@ -39,4 +39,3 @@ export default class ListControl {
     return this.tasks[index - 1];
   };
 }
- 
