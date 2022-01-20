@@ -1,11 +1,11 @@
 import './index.css';
-import TasksManager from './modules/tasks';
-import DisplayManager from './modules/display';
+import ListControl from './modules/tasks';
+import ControlDisplay from './modules/display';
 
 const selector = (element) => document.querySelector(element);
 const selectorAll = (element) => document.querySelectorAll(element);
 const input = selector('input');
-const manager = new TasksManager();
+const manager = new ListControl();
 
 const updateTask = (event, index, focus = false) => {
   if (event.key === 'Enter' || focus) {
@@ -14,36 +14,17 @@ const updateTask = (event, index, focus = false) => {
       selector(`.task_${index}`).value,
       selector(`.task_${index}_checkbox`).checked,
     );
-    selector('.add_task input').focus();
+    selector('.line input').focus();
   }
-};
-
-const deleteTask = (index) => {
-  manager.deleteTask(index);
-  DisplayManager.reset(selector('.tasks'));
-  manager
-    .getTasks()
-    .forEach((task) => DisplayManager.displayTask(selector('.tasks'), task));
-  selectorAll('.fa-trash').forEach((e) => e.addEventListener('click', () => {
-    deleteTask(e.dataset.id);
-  }));
-
-  selectorAll('.input_task').forEach((e) => e.addEventListener('keyup', (event) => {
-    updateTask(event, e.dataset.id);
-  }));
-
-  selectorAll('.input_task').forEach((e) => e.addEventListener('focusout', (event) => {
-    updateTask(event, e.dataset.id, true);
-  }));
 };
 
 const createTask = () => {
   const task = manager.addTask(input.value);
-  DisplayManager.displayTask(selector('.tasks'), task);
+  ControlDisplay.displayTask(selector('.tasks'), task);
   input.value = '';
 
   selector(`#task_${task.index}`).addEventListener('click', () => {
-    deleteTask(task.index);
+    removeList(task.index);
   });
 
   selector(`#input_task_${task.index}`).addEventListener('keyup', (event) => {
@@ -67,3 +48,22 @@ input.addEventListener('keyup', ({ key }) => {
 });
 
 selector('.fa-level-down-alt').addEventListener('click', () => createTask());
+
+const removeList = (index) => {
+  manager.removeList(index);
+  ControlDisplay.reset(selector('.tasks'));
+  manager
+    .getTasks()
+    .forEach((task) => ControlDisplay.displayTask(selector('.tasks'), task));
+  selectorAll('.fa-trash').forEach((e) => e.addEventListener('click', () => {
+    removeList(e.dataset.id);
+  }));
+
+  selectorAll('.input_task').forEach((e) => e.addEventListener('keyup', (event) => {
+    updateTask(event, e.dataset.id);
+  }));
+
+  selectorAll('.input_task').forEach((e) => e.addEventListener('focusout', (event) => {
+    updateTask(event, e.dataset.id, true);
+  }));
+};
