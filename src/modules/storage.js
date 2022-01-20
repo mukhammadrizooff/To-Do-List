@@ -5,7 +5,7 @@ export default class StorageLocal {
 
   static load = () => {
     if (localStorage.getItem('tasks') !== null) {
-      return JSON.parse(localStorage.getItem('tasks')); 
+      return JSON.parse(localStorage.getItem('tasks'));
     }
     return [];
   };
