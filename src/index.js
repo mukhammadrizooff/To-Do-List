@@ -24,23 +24,17 @@ const removeList = (index) => {
   manager
     .getTasks()
     .forEach((task) => ControlDisplay.displayTask(selector('.tasks'), task));
-  selectorAll('.fa-trash').forEach((e) =>
-    e.addEventListener('click', () => {
+  selectorAll('.fa-trash').forEach((e) => e.addEventListener('click', () => {
       removeList(e.dataset.id);
-    })
-  );
+    }), );
 
-  selectorAll('.input_task').forEach((e) =>
-    e.addEventListener('keyup', (event) => {
+  selectorAll('.input_task').forEach((e) => e.addEventListener('keyup', (event) => {
       updateTask(event, e.dataset.id);
-    })
-  );
+    }), );
 
-  selectorAll('.input_task').forEach((e) =>
-    e.addEventListener('focusout', (event) => {
+  selectorAll('.input_task').forEach((e) => e.addEventListener('focusout', (event) => {
       updateTask(event, e.dataset.id, true);
-    })
-  );
+    }), );
 };
 
 const createTask = () => {
@@ -60,7 +54,7 @@ const createTask = () => {
     'focusout',
     (event) => {
       updateTask(event, task.index, true);
-    }
+    },
   );
 
   selector(`#input_task_${task.index}`).focus();
