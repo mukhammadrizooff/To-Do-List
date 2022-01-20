@@ -25,16 +25,16 @@ const removeList = (index) => {
     .getTasks()
     .forEach((task) => ControlDisplay.displayTask(selector('.tasks'), task));
   selectorAll('.fa-trash').forEach((e) => e.addEventListener('click', () => {
-      removeList(e.dataset.id);
-    }), );
+    removeList(e.dataset.id);
+  }));
 
   selectorAll('.input_task').forEach((e) => e.addEventListener('keyup', (event) => {
-      updateTask(event, e.dataset.id);
-    }), );
+    updateTask(event, e.dataset.id);
+  }));
 
   selectorAll('.input_task').forEach((e) => e.addEventListener('focusout', (event) => {
-      updateTask(event, e.dataset.id, true);
-    }), );
+    updateTask(event, e.dataset.id, true);
+  }));
 };
 
 const createTask = () => {
