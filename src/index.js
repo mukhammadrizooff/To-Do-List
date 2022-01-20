@@ -1,6 +1,7 @@
 import './index.css';
 import ListControl from './modules/tasks.js';
 import ControlDisplay from './modules/display.js';
+import StorageLocal from './modules/storage';
 
 const selector = (element) => document.querySelector(element);
 const selectorAll = (element) => document.querySelectorAll(element);
@@ -18,9 +19,7 @@ const updateTask = (event, index, focus = false) => {
   }
 };
 
-const removeList = (index) => {
-  manager.removeList(index);
-  ControlDisplay.reset(selector('.tasks'));
+const showData = () => {
   manager
     .getTasks()
     .forEach((task) => ControlDisplay.controlDisplay(selector('.tasks'), task));
@@ -35,6 +34,12 @@ const removeList = (index) => {
   selectorAll('.input_task').forEach((e) => e.addEventListener('focusout', (event) => {
     updateTask(event, e.dataset.id, true);
   }));
+}
+
+const removeList = (index) => {
+  manager.removeList(index);
+  ControlDisplay.reset(selector('.tasks'));
+  showData();
 };
 
 const createTask = () => {
@@ -67,3 +72,7 @@ input.addEventListener('keyup', ({ key }) => {
 });
 
 selector('.fa-level-down-alt').addEventListener('click', () => createTask());
+
+window.addEventListener('load', () => {
+  showData();
+});
