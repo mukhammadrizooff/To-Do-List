@@ -29,6 +29,7 @@ ul {
   justify-content: space-between;
   border-bottom: 1px solid #fffbfb;
 }
+
 .task {
   display: flex;
   background-color: #dcdbdb;
