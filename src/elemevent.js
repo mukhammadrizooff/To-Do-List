@@ -1,3 +1,5 @@
+/* eslint no-restricted-globals: "off", curly: "error" */
+
 import completedCheck from './marklist.js';
 import Storage from './storage.js';
 import dropElements from './draganddrop.js';

@@ -1,3 +1,5 @@
+/* eslint no-restricted-globals: "off", curly: "error" */
+
 import {
   addNewEvents,
   deleteAllElements,
