@@ -1,4 +1,4 @@
-/* eslint no-restricted-globals: "off", curly: "error" */
+/* eslint-disable import/no-cycle */
 
 import {
   addNewEvents,

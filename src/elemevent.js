@@ -1,4 +1,4 @@
-/* eslint no-restricted-globals: "off", curly: "error" */
+/* eslint-disable import/no-cycle */
 
 import completedCheck from './marklist.js';
 import Storage from './storage.js';
