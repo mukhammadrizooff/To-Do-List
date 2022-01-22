@@ -30,10 +30,10 @@ ul {
   border-bottom: 1px solid #fffbfb;
 }
 .task {
+  display: flex;
   background-color: #dcdbdb;
   width: 100%;
   padding: 20px;
-  display: flex;
   justify-content: space-between;
   border: 0;
 }
@@ -73,7 +73,6 @@ input {
   display: flex;
   align-items: center;
   width: 100%;
-  /* border-style: none; */
 }
 
 .marked {
