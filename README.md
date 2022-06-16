@@ -2,7 +2,7 @@
 
 # Todo-List
 
-Additional description about the project and its features
+Additional description about the project and its features.
 
 
 ## Built With
